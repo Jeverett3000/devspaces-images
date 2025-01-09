@@ -215,7 +215,7 @@ RUN npm install \
 #########################################################################
 
 # https://registry.access.redhat.com/ubi9/nodejs-20
-FROM registry.redhat.io/ubi9/nodejs-20:9.5-1736309818 as checode-linux-libc-ubi9-builder
+FROM registry.redhat.io/ubi9/nodejs-20:9.5-1736398249 as checode-linux-libc-ubi9-builder
 # hadolint ignore=DL3002
 USER root
 
