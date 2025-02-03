@@ -863,7 +863,7 @@ spec:
                 - name: RELATED_IMAGE_che_server
                   value: registry.redhat.io/devspaces/server-rhel9@sha256:4a254d081a2c0b7ee170114451ed968abd00de1d315163dfb5da38cc51b42bcb
                 - name: RELATED_IMAGE_dashboard
-                  value: registry.redhat.io/devspaces/dashboard-rhel9@sha256:fb296ded43e6dcf5a34810635adb5456f95a4222a139a405d0f9aa673b0e6c8a
+                  value: registry.redhat.io/devspaces/dashboard-rhel9@sha256:59b455f8f763efdd12f4ecbdabda425bef5a9ba18465fb6abf9c9f59c82113a9
                 - name: RELATED_IMAGE_editor_definition_che_code_latest_che_code_injector
                   value: registry.redhat.io/devspaces/code-rhel9@sha256:820abfdcb1ba9031a2279ec68ec87ff1fcaead8717bdd3bf5c4f35da9ca4020f
                 - name: RELATED_IMAGE_editor_definition_che_code_latest_che_code_runtime_description
@@ -1071,7 +1071,7 @@ spec:
   - name: che_server
     image: registry.redhat.io/devspaces/server-rhel9@sha256:4a254d081a2c0b7ee170114451ed968abd00de1d315163dfb5da38cc51b42bcb
   - name: dashboard
-    image: registry.redhat.io/devspaces/dashboard-rhel9@sha256:fb296ded43e6dcf5a34810635adb5456f95a4222a139a405d0f9aa673b0e6c8a
+    image: registry.redhat.io/devspaces/dashboard-rhel9@sha256:59b455f8f763efdd12f4ecbdabda425bef5a9ba18465fb6abf9c9f59c82113a9
   - name: editor_definition_che_code_latest_che_code_injector
     image: registry.redhat.io/devspaces/code-rhel9@sha256:820abfdcb1ba9031a2279ec68ec87ff1fcaead8717bdd3bf5c4f35da9ca4020f
   - name: editor_definition_che_code_latest_che_code_runtime_description
