@@ -187,7 +187,7 @@ COPY --chmod=755 /build/remote-config /mnt/rootfs/remote/data/Machine/
 ##################################################################################################################
 
 # https://registry.access.redhat.com/ubi9-minimal
-FROM registry.access.redhat.com/ubi9-minimal:9.5-1736404155
+FROM registry.access.redhat.com/ubi9-minimal:9.5-1738643652
 COPY --from=ubi-builder /mnt/rootfs/ /
 ENV HOME=/home/che
 USER 1001
