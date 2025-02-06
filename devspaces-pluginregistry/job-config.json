@@ -1,25 +1,25 @@
 {
   "Purpose": "To set configurations of jenkins jobs including upstream branches, dependencies and disabled status",
-  "Version": "3.19",
+  "Version": "3.20",
   "Jobs": {
     "code": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -33,23 +33,23 @@
       }
     },
     "configbump": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -63,23 +63,23 @@
       }
     },
     "dashboard": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -93,23 +93,46 @@
       }
     },
     "imagepuller": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.x": {
+        "upstream_branch": [
+          "main",
+          "main"
+        ],
+        "disabled": false
+      }
+    },
+    "jetbrains-ide": {
+      "3.19": {
+        "upstream_branch": [
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -123,23 +146,23 @@
       }
     },
     "machineexec": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -153,23 +176,23 @@
       }
     },
     "operator": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -183,23 +206,23 @@
       }
     },
     "server": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -213,24 +236,24 @@
       }
     },
     "pluginregistry": {
-      "3.17": {
-        "upstream_branch": [
-          "devspaces-3.17-rhel-8",
-          "devspaces-3.17-rhel-8"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "devspaces-3.18-rhel-9",
           "devspaces-3.18-rhel-9"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
           "devspaces-3.19-rhel-9",
           "devspaces-3.19-rhel-9"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "devspaces-3.20-rhel-9",
+          "devspaces-3.20-rhel-9"
         ],
         "disabled": false
       },
@@ -243,21 +266,21 @@
       }
     },
     "idea": {
-      "3.17": {
+      "3.18": {
         "upstream_branch": [
           "20221111",
           "20221111"
         ],
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "upstream_branch": [
           "20221111",
           "20221111"
         ],
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "upstream_branch": [
           "20221111",
           "20221111"
@@ -273,21 +296,21 @@
       }
     },
     "traefik": {
-      "3.17": {
+      "3.18": {
         "upstream_branch": [
           "v2.10.0",
           "v2.10.0"
         ],
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "upstream_branch": [
           "v2.10.0",
           "v2.10.0"
         ],
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "upstream_branch": [
           "v2.10.0",
           "v2.10.0"
@@ -303,13 +326,13 @@
       }
     },
     "build-all-images": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -317,24 +340,24 @@
       }
     },
     "udi": {
-      "3.17": {
-        "upstream_branch": [
-          "devspaces-3.17-rhel-8",
-          "devspaces-3.17-rhel-8"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "devspaces-3.18-rhel-9",
           "devspaces-3.18-rhel-9"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
           "devspaces-3.19-rhel-9",
           "devspaces-3.19-rhel-9"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "devspaces-3.20-rhel-9",
+          "devspaces-3.20-rhel-9"
         ],
         "disabled": false
       },
@@ -349,23 +372,23 @@
   },
   "Management-Jobs": {
     "dsc": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -379,23 +402,23 @@
       }
     },
     "operator-bundle": {
-      "3.17": {
-        "upstream_branch": [
-          "7.92.x",
-          "main"
-        ],
-        "disabled": true
-      },
       "3.18": {
         "upstream_branch": [
           "7.95.x",
           "main"
         ],
-        "disabled": false
+        "disabled": true
       },
       "3.19": {
         "upstream_branch": [
-          "7.97.x",
+          "7.98.x",
+          "main"
+        ],
+        "disabled": false
+      },
+      "3.20": {
+        "upstream_branch": [
+          "7.99.x",
           "main"
         ],
         "disabled": false
@@ -409,13 +432,13 @@
       }
     },
     "get-sources-rhpkg-container-build": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -423,13 +446,13 @@
       }
     },
     "push-latest-container-to-quay": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -437,13 +460,13 @@
       }
     },
     "sync-to-downstream": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -451,13 +474,13 @@
       }
     },
     "update-digests": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -465,13 +488,13 @@
       }
     },
     "slack-notification": {
-      "3.17": {
+      "3.18": {
         "disabled": true
       },
-      "3.18": {
+      "3.19": {
         "disabled": false
       },
-      "3.19": {
+      "3.20": {
         "disabled": false
       },
       "3.x": {
@@ -481,100 +504,92 @@
   },
   "CSVs": {
     "operator-bundle": {
-      "3.17": {
-        "CSV_VERSION": "3.17.0",
-        "CSV_VERSION_PREV": "3.16.1"
-      },
       "3.18": {
-        "CSV_VERSION": "3.18.0",
-        "CSV_VERSION_PREV": "3.17.0"
+        "CSV_VERSION": "3.18.1",
+        "CSV_VERSION_PREV": "3.18.0"
       },
       "3.19": {
         "CSV_VERSION": "3.19.0",
-        "CSV_VERSION_PREV": "3.17.0"
+        "CSV_VERSION_PREV": "3.18.1"
+      },
+      "3.20": {
+        "CSV_VERSION": "3.20.0",
+        "CSV_VERSION_PREV": "3.18.1"
       },
       "3.x": {
-        "CSV_VERSION": "3.19.0",
-        "CSV_VERSION_PREV": "3.17.0"
+        "CSV_VERSION": "3.20.0",
+        "CSV_VERSION_PREV": "3.18.1"
       }
     }
   },
   "Other": {
     "Errata": {
-      "3.17": "139981",
       "3.18": "143502",
-      "3.19": "n/a",
+      "3.19": "145508",
+      "3.20": "n/a",
       "3.x": "n/a"
     },
     "Epic": {
-      "3.17": "CRW-7528",
       "3.18": "CRW-7648",
-      "3.19": "n/a",
+      "3.19": "CRW-7972",
+      "3.20": "n/a",
       "3.x": "n/a"
     },
     "FLOATING_QUAY_TAGS": {
-      "3.17": "3.17",
-      "3.18": "latest",
-      "3.19": "next",
+      "3.18": "3.18",
+      "3.19": "latest",
+      "3.20": "next",
       "3.x": "next"
     },
     "DEV_WORKSPACE_CONTROLLER": {
-      "3.17": "v0.13.0",
       "3.18": "v0.13.0",
       "3.19": "v0.13.0",
+      "3.20": "v0.13.0",
       "3.x": "v0.13.0"
     },
     "DEV_HEADER_REWRITE_TRAEFIK_PLUGIN": {
-      "3.17": "v0.1.2",
       "3.18": "v0.1.2",
       "3.19": "v0.1.2",
+      "3.20": "v0.1.2",
       "3.x": "v0.1.2"
     },
     "gopls": {
-      "3.17": "gopls/v0.10.1",
       "3.18": "gopls/v0.10.1",
       "3.19": "gopls/v0.10.1",
+      "3.20": "gopls/v0.10.1",
       "3.x": "gopls/v0.10.1"
     },
     "xdebug": {
-      "3.17": "3.1.6",
       "3.18": "3.1.6",
       "3.19": "3.1.6",
+      "3.20": "3.1.6",
       "3.x": "3.1.6"
     },
     "kubedock": {
-      "3.17": "0.11.0",
       "3.18": "0.11.0",
       "3.19": "0.11.0",
+      "3.20": "0.11.0",
       "3.x": "0.11.0"
     },
     "stow": {
-      "3.17": "4ef5eca4a9d107b24e712bb4c2c91f47e7e0fb85",
       "3.18": "4ef5eca4a9d107b24e712bb4c2c91f47e7e0fb85",
       "3.19": "4ef5eca4a9d107b24e712bb4c2c91f47e7e0fb85",
+      "3.20": "4ef5eca4a9d107b24e712bb4c2c91f47e7e0fb85",
       "3.x": "4ef5eca4a9d107b24e712bb4c2c91f47e7e0fb85"
     },
     "DEV_WORKSPACE_OPERATOR_TAG": {
-      "3.17": "0.31",
       "3.18": "0.32",
       "3.19": "0.33",
-      "3.x": "0.33"
+      "3.20": "0.34",
+      "3.x": "0.34"
     },
     "CHE_OPENVSX_TAG": {
-      "3.17": "che-openvsx-v0.15.8",
       "3.18": "che-openvsx-v0.19.0",
       "3.19": "che-openvsx-v0.19.0",
+      "3.20": "che-openvsx-v0.19.0",
       "3.x": "che-openvsx-v0.19.0"
     },
     "OPENSHIFT_VERSIONS_SUPPORTED": {
-      "3.17": [
-        "v4.17",
-        "v4.16",
-        "v4.15",
-        "v4.14",
-        "v4.13",
-        "v4.12"
-      ],
       "3.18": [
         "v4.17",
         "v4.16",
@@ -582,6 +597,12 @@
         "v4.14"
       ],
       "3.19": [
+        "v4.17",
+        "v4.16",
+        "v4.15",
+        "v4.14"
+      ],
+      "3.20": [
         "v4.17",
         "v4.16",
         "v4.15",
@@ -595,37 +616,37 @@
       ]
     },
     "OPENSHIFT_CONTENT_SET_VERSION": {
-      "3.17": "4.12",
       "3.18": "4.17",
       "3.19": "4.17",
+      "3.20": "4.17",
       "3.x": "4.17"
     },
     "OCP_TOOLS_CONTENT_SET_VERSION": {
-      "3.17": "4.12",
       "3.18": "4.15",
       "3.19": "4.15",
+      "3.20": "4.15",
       "3.x": "4.15"
     },
     "GOLANG_VERSION": {
-      "3.17": "1.16.2",
       "3.18": "1.16.2",
       "3.19": "1.16.2",
+      "3.20": "1.16.2",
       "3.x": "1.16.2"
     },
     "NODE_VERSION": {
-      "3.17": "18.16.1",
       "3.18": "18.16.1",
       "3.19": "18.16.1",
+      "3.20": "18.16.1",
       "3.x": "18.16.1"
     },
     "YARN_VERSION": {
-      "3.17": "1.22.19",
       "3.18": "1.22.19",
       "3.19": "1.22.19",
+      "3.20": "1.22.19",
       "3.x": "1.22.19"
     }
   },
   "Copyright": [
-    "#\n# Copyright (c) 2018-2024 Red Hat, Inc.\n#    This program and the accompanying materials are made\n#    available under the terms of the Eclipse Public License 2.0\n#    which is available at https://www.eclipse.org/legal/epl-2.0/\n#\n#  SPDX-License-Identifier: EPL-2.0\n#\n#  Contributors:\n#    Red Hat, Inc. - initial API and implementation\n"
+    "#\n# Copyright (c) 2018-2025 Red Hat, Inc.\n#    This program and the accompanying materials are made\n#    available under the terms of the Eclipse Public License 2.0\n#    which is available at https://www.eclipse.org/legal/epl-2.0/\n#\n#  SPDX-License-Identifier: EPL-2.0\n#\n#  Contributors:\n#    Red Hat, Inc. - initial API and implementation\n"
   ]
 }
