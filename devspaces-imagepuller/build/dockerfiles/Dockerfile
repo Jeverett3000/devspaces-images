@@ -9,7 +9,7 @@
 #   Red Hat, Inc. - initial API and implementation
 #
 # https://registry.access.redhat.com/ubi9/go-toolset
-FROM registry.redhat.io/ubi9/go-toolset:9.5-1739267472 as builder
+FROM registry.redhat.io/ubi9/go-toolset:9.5-1739801907 as builder
 ENV GOPATH=/go/ \
     GO111MODULE=on
 
