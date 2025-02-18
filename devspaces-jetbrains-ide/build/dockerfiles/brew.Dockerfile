@@ -13,10 +13,10 @@
 
 # The image to get the Node.js binary to support running an IDE in a UBI8-based user container.
 # https://registry.access.redhat.com/ubi8/nodejs-20
-FROM registry.redhat.io/ubi8/nodejs-20:1-58.1724661482 as ubi8
+FROM registry.redhat.io/ubi8/nodejs-20:1-72.1739758168 as ubi8
 
 # https://registry.access.redhat.com/ubi9/nodejs-20
-FROM registry.redhat.io/ubi9/nodejs-20:9.5-1737421648
+FROM registry.redhat.io/ubi9/nodejs-20:9.5-1739783265
 
 USER 0
 
@@ -63,7 +63,7 @@ LABEL summary="$SUMMARY" \
       io.openshift.tags="$PRODNAME,$COMPNAME" \
       com.redhat.component="$PRODNAME-$COMPNAME-container" \
       name="$PRODNAME/$COMPNAME" \
-      version="3.17" \
+      version="3.20" \
       license="EPLv2" \
       maintainer="Artem Zatsarynnyi <azatsary@redhat.com>, Samantha Dawley <sdawley@redhat.com>" \
       io.openshift.expose-services="" \
