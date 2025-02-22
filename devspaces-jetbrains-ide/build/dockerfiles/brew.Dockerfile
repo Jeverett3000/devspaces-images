@@ -45,7 +45,7 @@ RUN for f in "${HOME}" "/etc/passwd" "/etc/group" "/status-app" "/idea-server"; 
     done
 
 # Build the status app.
-WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-jetbrains-ide/app/devspaces-jetbrains-ide/status-app
+WORKDIR /status-app
 RUN npm install
 
 # to provide to a UBI8-based user's container
