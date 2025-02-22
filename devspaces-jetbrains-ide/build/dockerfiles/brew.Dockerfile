@@ -32,7 +32,7 @@ RUN cp -r build/scripts/*.sh /
 RUN cp -r status-app /status-app/
 
 # Copy the JetBrains IDE's config where some settings are overridden for Che CDE needs.
-RUN cp -r build/jetbrains_configs/idea.properties/ /
+RUN cp -r build/jetbrains_configs/idea.properties /
 
 # Create a folders structure for mounting a shared volume and copy the editor binaries to.
 RUN mkdir -p /idea-server/status-app
