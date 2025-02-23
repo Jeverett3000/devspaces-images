@@ -46,7 +46,7 @@ RUN for f in "${HOME}" "/etc/passwd" "/etc/group" "/status-app" "/idea-server"; 
 
 # Build the status app.
 WORKDIR /status-app
-RUN npm install
+RUN npm install --loglevel verbose
 
 # to provide to a UBI8-based user's container
 COPY --from=ubi8 /usr/bin/node /node-ubi8
