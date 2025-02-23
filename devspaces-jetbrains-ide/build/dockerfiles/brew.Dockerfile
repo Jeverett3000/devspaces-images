@@ -20,16 +20,22 @@ FROM registry.redhat.io/ubi9/nodejs-20:9.5-1739783265
 
 USER 0
 
-WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-jetbrains-ide/app/devspaces-jetbrains-ide/
-
 # cachito:yarn step 1: copy cachito sources where we can use them; source env vars; set working dir
 COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
 
 # hadolint ignore=SC2086
 RUN source $REMOTE_SOURCES_DIR/devspaces-images-jetbrains-ide/cachito.env
 
-RUN cp -r build/scripts/*.sh /
+# It's important to build the status-app in the sources dir.
+# Since there's .npmrc file that contains a relative path to the certificates
+# required for accessing the Cachito npm cache.
+WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-jetbrains-ide/app/devspaces-jetbrains-ide/status-app
+RUN npm install
+
+WORKDIR $REMOTE_SOURCES_DIR/devspaces-images-jetbrains-ide/app/devspaces-jetbrains-ide/
+
 RUN cp -r status-app /status-app/
+RUN cp -r build/scripts/*.sh /
 
 # Copy the JetBrains IDE's config where some settings are overridden for Che CDE needs.
 RUN cp -r build/jetbrains_configs/idea.properties /
@@ -43,10 +49,6 @@ RUN for f in "${HOME}" "/etc/passwd" "/etc/group" "/status-app" "/idea-server"; 
         chgrp -R 0 ${f} && \
         chmod -R g+rwX ${f}; \
     done
-
-# Build the status app.
-WORKDIR /status-app
-RUN npm install --loglevel verbose
 
 # to provide to a UBI8-based user's container
 COPY --from=ubi8 /usr/bin/node /node-ubi8
