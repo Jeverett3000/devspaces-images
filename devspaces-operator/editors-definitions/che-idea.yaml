@@ -77,7 +77,7 @@ events:
 components:
   - name: idea-rhel9
     container:
-      image: registry.redhat.io/ubi8/ubi-minimal:8.8
+      image: registry.redhat.io/ubi9-minimal:9.5
       env:
         - name: PROJECTOR_ASSEMBLY_DIR
           value: /projector

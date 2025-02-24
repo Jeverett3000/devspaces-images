@@ -102,7 +102,7 @@ components:
       cpuRequest: 30m
   - name: editor-runtime
     container:
-      image: registry.redhat.io/ubi8/ubi-minimal:8.8
+      image: registry.redhat.io/ubi9-minimal:9.5
       memoryLimit: 6144Mi
       memoryRequest: 2048Mi
       cpuLimit: 2000m
