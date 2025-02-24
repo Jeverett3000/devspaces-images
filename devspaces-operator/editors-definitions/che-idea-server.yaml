@@ -90,7 +90,7 @@ components:
     volume: {}
   - name: editor-injector
     container:
-      image: registry.redhat.io/devspaces/jetbrains-ide-rhel9:3.18
+      image: registry.redhat.io/devspaces/jetbrains-ide-rhel9:3.20
       command:
         - /entrypoint-init-container.sh
       volumeMounts:
