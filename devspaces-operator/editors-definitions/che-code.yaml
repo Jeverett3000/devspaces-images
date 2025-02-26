@@ -84,7 +84,7 @@ components:
       cpuRequest: 30m
   - name: che-code-runtime-description
     container:
-      image: registry.redhat.io/ubi9-minimal:9.5
+      image: registry.redhat.io/ubi8/ubi-minimal:8.8
       memoryLimit: 1024Mi
       memoryRequest: 256Mi
       cpuLimit: 500m
