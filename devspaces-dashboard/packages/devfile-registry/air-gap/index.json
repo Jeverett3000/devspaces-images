@@ -241,11 +241,11 @@
     },
     "project": {
       "zip": {
-        "filename": "jbossas-eap-devfile-examples-eap-8.0.x.zip"
+        "filename": "jbossas-eap-devfile-examples-devspaces-3-rhel-9.zip"
       }
     },
     "devfile": {
-      "filename": "jbossas-eap-devfile-examples-eap-8.0.x-devfile.yaml"
+      "filename": "jbossas-eap-devfile-examples-devspaces-3-rhel-9-devfile.yaml"
     }
   }
 ]
