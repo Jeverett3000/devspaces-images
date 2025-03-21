@@ -40,6 +40,12 @@ declare module 'vscode' {
 		 */
 		detail?: string;
 
+
+		/**
+		 * A human-readable string that represents a doc-comment.
+		 */
+		documentation?: string | MarkdownString;
+
 		/**
 		 * The completion's kind. Note that this will map to an icon.
 		 */
@@ -55,7 +61,8 @@ declare module 'vscode' {
 		Folder = 1,
 		Flag = 2,
 		Method = 3,
-		Argument = 4
+		Argument = 4,
+		Alias = 5,
 	}
 
 	export interface TerminalCompletionContext {
@@ -64,10 +71,14 @@ declare module 'vscode' {
 		 */
 		commandLine: string;
 		/**
-		 * The index of the
-		 * cursor in the command line.
+		 * The index of the cursor in the command line.
 		 */
 		cursorPosition: number;
+		/**
+		 * Whether completions should be provided when it is not clear to what type of completion is
+		 * well known.
+		 */
+		allowFallbackCompletions: boolean;
 	}
 
 	export namespace window {
@@ -119,8 +130,8 @@ declare module 'vscode' {
 		 */
 		cwd?: Uri;
 		/**
-		 * The path separator to use when constructing paths.
+		 * Environment variables to use when constructing paths.
 		 */
-		pathSeparator: string;
+		env?: { [key: string]: string | null | undefined };
 	}
 }

@@ -51,8 +51,8 @@
 		},
 		{
 			"name": "ms-vscode.js-debug",
-			"version": "1.96.0",
-			"sha256": "278cd8b129c133d834a8105d0e0699f2f940c5c159fa5c821c7b9a4f7ffd3581",
+			"version": "1.97.1",
+			"sha256": "977dd854805547702e312e176f68a1b142fa123f228258f47f0964560ad32496",
 			"repo": "https://github.com/microsoft/vscode-js-debug",
 			"metadata": {
 				"id": "25629058-ddac-4e17-abba-74678e126c5d",
@@ -83,7 +83,8 @@
 		},
 		{
 			"name": "devfile.vscode-devfile",
-			"version": "0.0.2",
+			"version": "0.0.4",
+			"sha256": "c55a6c1d087e7715bfacb01c0c2b52ef0f935d85f0707265d9068cd64143744c",
 			"repo": "https://github.com/devfile/vscode-walkthrough-extension"
 		}
 	],
