@@ -1,7 +1,7 @@
 {
   "title": "Red Hat OpenShift Dev Spaces ",
   "name": "Red Hat OpenShift Dev Spaces",
-  "productVersion": "3.21 @ 0c4dd9 #639 :: Eclipse Che Dashboard 7.102.0 @ 8e9ca",
+  "productVersion": "3.21 @ 916e2 #640 :: Eclipse Che Dashboard 7.102.0 @ 6ccc",
   "logoFile": "che-logo.svg",
   "logoTextFile": "che-logo-text.svg",
   "links": [
