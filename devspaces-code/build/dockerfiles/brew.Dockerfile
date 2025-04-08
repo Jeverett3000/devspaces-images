@@ -445,7 +445,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -ldflags '-w -s' -a -instal
 #########################################################################
 
 # https://registry.access.redhat.com/ubi9
-FROM registry.redhat.io/ubi9:9.5-1742918310 AS ubi-builder
+FROM registry.redhat.io/ubi9:9.5-1744101466 AS ubi-builder
 
 RUN mkdir -p /mnt/rootfs/projects /mnt/rootfs/home/che /mnt/rootfs/remote/data/Machine/
 # hadolint ignore=DL3033

@@ -157,7 +157,7 @@ RUN npm install \
     && chgrp -R 0 /checode && chmod -R g+rwX /checode
 
 # https://registry.access.redhat.com/ubi9
-FROM registry.redhat.io/ubi9:9.5-1742918310 AS ubi-builder
+FROM registry.redhat.io/ubi9:9.5-1744101466 AS ubi-builder
 
 RUN mkdir -p /mnt/rootfs
 RUN yum install --installroot /mnt/rootfs brotli libstdc++ coreutils glibc-minimal-langpack --releasever 9 --setopt install_weak_deps=false --nodocs -y && yum --installroot /mnt/rootfs clean all
