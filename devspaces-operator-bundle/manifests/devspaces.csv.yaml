@@ -59,7 +59,7 @@ metadata:
     categories: Developer Tools
     certified: "true"
     containerImage: registry-proxy.engineering.redhat.com/rh-osbs/devspaces-operator:3.21
-    createdAt: "2025-03-26T19:21:54+00:00"
+    createdAt: "2025-04-09T18:55:29+00:00"
     description: Devfile v2 and v1 development solution, 1 instance per cluster, for
       portable, collaborative k8s workspaces.
     features.operators.openshift.io/cnf: "false"
@@ -895,6 +895,9 @@ spec:
                         value: "false"
                       - name: CHE_FLAVOR
                         value: devspaces
+                      - name: CHE_OPERATOR_WORKSPACES_CONFIG_CONTROLLER_ANNOTATIONS_TO_REMOVE_BEFORE_SYNC_REGEXP
+                      - name: CHE_OPERATOR_WORKSPACES_CONFIG_CONTROLLER_LABELS_TO_REMOVE_BEFORE_SYNC_REGEXP
+                        value: argocd[.]argoproj[.]io/.+
                       - name: CHE_VERSION
                         value: 3.21.0
                       - name: CONSOLE_LINK_DISPLAY_NAME
