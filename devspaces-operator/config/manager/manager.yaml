@@ -65,6 +65,10 @@ spec:
               value: 'false'
             - name: CHE_FLAVOR
               value: devspaces
+            - name: CHE_OPERATOR_WORKSPACES_CONFIG_CONTROLLER_ANNOTATIONS_TO_REMOVE_BEFORE_SYNC_REGEXP
+              value: ''
+            - name: CHE_OPERATOR_WORKSPACES_CONFIG_CONTROLLER_LABELS_TO_REMOVE_BEFORE_SYNC_REGEXP
+              value: 'argocd[.]argoproj[.]io/.+'
             - name: CHE_VERSION
               value: 3.21.0
             - name: CONSOLE_LINK_DISPLAY_NAME
