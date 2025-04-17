@@ -1,7 +1,7 @@
 {
   "title": "Red Hat OpenShift Dev Spaces ",
   "name": "Red Hat OpenShift Dev Spaces",
-  "productVersion": "3.21 @ 8492e #642 :: Eclipse Che Dashboard 7.102.0 @ 932d",
+  "productVersion": "3.22 @ a1dc4 #643 :: Eclipse Che Dashboard 7.102.0 @ d2af5",
   "logoFile": "che-logo.svg",
   "logoTextFile": "che-logo-text.svg",
   "links": [
@@ -11,7 +11,7 @@
     },
     {
       "text": "Documentation",
-      "href": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/"
+      "href": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/"
     },
     {
       "text": "Support",
@@ -19,12 +19,12 @@
     }
   ],
   "docs": {
-    "devfile" : "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/html-single/user_guide#customizing-workspace-components",
-    "workspace" : "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/html-single/user_guide#developer-workspaces",
+    "devfile" : "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/html-single/user_guide#customizing-workspace-components",
+    "workspace" : "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/html-single/user_guide#developer-workspaces",
     "converting": "https://devfile.io/docs/devfile/2.1.0/user-guide/migrating-to-devfile-v2/",
-    "general": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/",
-    "storageTypes": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/html-single/administration_guide#configuring-storage",
-    "webSocketTroubleshooting": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.21/html-single/user_guide#troubleshooting-network-problems"
+    "general": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/",
+    "storageTypes": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/html-single/administration_guide#configuring-storage",
+    "webSocketTroubleshooting": "https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.22/html-single/user_guide#troubleshooting-network-problems"
   },
   "configuration": {
     "cheCliTool": "dsc"
