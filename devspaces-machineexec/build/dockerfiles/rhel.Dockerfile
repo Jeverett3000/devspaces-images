@@ -10,7 +10,8 @@
 #
 
 # https://registry.access.redhat.com/ubi9/go-toolset
-FROM registry.redhat.io/ubi9/go-toolset:9.5-1742984157 as builder
+# Go 1.23.6
+FROM registry.redhat.io/ubi9/go-toolset:9.5-1745328278 as builder
 ENV GOPATH=/go/ \
     CGO_ENABLED=1
 USER root
