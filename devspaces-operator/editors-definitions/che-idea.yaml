@@ -139,7 +139,7 @@ components:
     volume: {}
   - name: idea-rhel9-injector
     container:
-      image: registry.redhat.io/devspaces/idea-rhel9:3.21
+      image: registry.redhat.io/devspaces/idea-rhel9:3.22
       command:
         - /projector/entrypoint-init-container.sh
       env:

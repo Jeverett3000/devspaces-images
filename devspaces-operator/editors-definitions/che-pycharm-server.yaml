@@ -56,7 +56,7 @@ components:
     volume: {}
   - name: editor-injector
     container:
-      image: registry.redhat.io/devspaces/jetbrains-ide-rhel9:3.21
+      image: registry.redhat.io/devspaces/jetbrains-ide-rhel9:3.22
       command: ['/entrypoint-init-container.sh', 'pycharm']
       volumeMounts:
         - name: idea-server

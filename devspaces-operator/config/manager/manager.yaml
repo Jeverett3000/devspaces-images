@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: che-operator
-          image: quay.io/eclipse/che-operator:3.21
+          image: quay.io/eclipse/che-operator:3.22
           command:
             - /manager
           args:
@@ -58,7 +58,7 @@ spec:
                 "SETUID"]}}'
             - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTCOMPONENTS
               value: '[{"name": "universal-developer-image", "container": {"image":
-                "registry.redhat.io/devspaces/udi-rhel9@sha256:f04934298fe9e9b5b7024f1c2027b1cca829b8c6cef55ef34f9a8d04f469bf26"}}]'
+                "registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e"}}]'
             - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTEDITOR
               value: che-incubator/che-code/latest
             - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DISABLECONTAINERBUILDCAPABILITIES
@@ -70,7 +70,7 @@ spec:
             - name: CHE_OPERATOR_WORKSPACES_CONFIG_CONTROLLER_LABELS_TO_REMOVE_BEFORE_SYNC_REGEXP
               value: 'argocd[.]argoproj[.]io/.+'
             - name: CHE_VERSION
-              value: 3.21.0
+              value: 3.22.0
             - name: CONSOLE_LINK_DISPLAY_NAME
               value: Eclipse Che
             - name: CONSOLE_LINK_IMAGE
@@ -88,9 +88,9 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: RELATED_IMAGE_che_server
-              value: registry.redhat.io/devspaces/server-rhel9:3.21
+              value: registry.redhat.io/devspaces/server-rhel9:3.22
             - name: RELATED_IMAGE_dashboard
-              value: registry.redhat.io/devspaces/dashboard-rhel9:3.21
+              value: registry.redhat.io/devspaces/dashboard-rhel9:3.22
             - name: RELATED_IMAGE_devworkspace_controller
               value: registry.redhat.io/devworkspace/devworkspace-rhel8-operator
             - name: RELATED_IMAGE_gateway_authentication_sidecar
@@ -98,13 +98,13 @@ spec:
             - name: RELATED_IMAGE_gateway_authorization_sidecar
               value: registry.redhat.io/openshift4/ose-kube-rbac-proxy:v4.14
             - name: RELATED_IMAGE_plugin_registry
-              value: registry.redhat.io/devspaces/pluginregistry-rhel9:3.21
+              value: registry.redhat.io/devspaces/pluginregistry-rhel9:3.22
             - name: RELATED_IMAGE_pvc_jobs
               value: registry.redhat.io/ubi8/ubi-minimal:8.8
             - name: RELATED_IMAGE_single_host_gateway
-              value: registry.redhat.io/devspaces/traefik-rhel9:3.21
+              value: registry.redhat.io/devspaces/traefik-rhel9:3.22
             - name: RELATED_IMAGE_single_host_gateway_config_sidecar
-              value: registry.redhat.io/devspaces/configbump-rhel9:3.21
+              value: registry.redhat.io/devspaces/configbump-rhel9:3.22
             - name: WATCH_NAMESPACE
               valueFrom:
                 fieldRef:
