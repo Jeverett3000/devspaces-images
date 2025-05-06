@@ -864,9 +864,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
                 - name: RELATED_IMAGE_che_server
-                  value: registry.redhat.io/devspaces/server-rhel9@sha256:d7c0bc3b46317004afae1271c0643868d7c5b09944ad3aa763b2b2278c38a4e7
+                  value: registry.redhat.io/devspaces/server-rhel9@sha256:83e7e9bf6ea5a3c478ca4a4a0155ff63e4b30f32ef8ef364a3177678e8af3589
                 - name: RELATED_IMAGE_dashboard
-                  value: registry.redhat.io/devspaces/dashboard-rhel9@sha256:2e411d707f7f3842835eaf393db10d30c9bc592742a9e99cbf6fcbb9d247bd1f
+                  value: registry.redhat.io/devspaces/dashboard-rhel9@sha256:ec461ff011108e0ce959ab27155488a215a49d39bd2ddb0c6fecbd270229a166
                 - name: RELATED_IMAGE_editor_definition_che_clion_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:8720fac10aba11fc3d7dae76b652ba9051db497dcec8de29f55ed280c625672e
                 - name: RELATED_IMAGE_editor_definition_che_clion_server_latest_editor_runtime
@@ -1088,9 +1088,9 @@ spec:
   - name: devspaces-operator
     image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:cd561dbfb055581d9034a88000ce6906a57fbae21f46e0ff9ce41967386fa340
   - name: che_server
-    image: registry.redhat.io/devspaces/server-rhel9@sha256:d7c0bc3b46317004afae1271c0643868d7c5b09944ad3aa763b2b2278c38a4e7
+    image: registry.redhat.io/devspaces/server-rhel9@sha256:83e7e9bf6ea5a3c478ca4a4a0155ff63e4b30f32ef8ef364a3177678e8af3589
   - name: dashboard
-    image: registry.redhat.io/devspaces/dashboard-rhel9@sha256:2e411d707f7f3842835eaf393db10d30c9bc592742a9e99cbf6fcbb9d247bd1f
+    image: registry.redhat.io/devspaces/dashboard-rhel9@sha256:ec461ff011108e0ce959ab27155488a215a49d39bd2ddb0c6fecbd270229a166
   - name: editor_definition_che_clion_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:8720fac10aba11fc3d7dae76b652ba9051db497dcec8de29f55ed280c625672e
   - name: editor_definition_che_clion_server_latest_editor_runtime
