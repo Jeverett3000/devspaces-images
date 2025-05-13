@@ -88,6 +88,7 @@ COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
 COPY --chown=0:0 etc/podman-wrapper.sh /usr/bin/
 RUN mkdir -p /home/tooling/
 COPY --chown=0:0 etc/.stow-local-ignore /home/tooling/
+COPY --chown=0:0 etc/.copy-files /home/tooling/
 
 # NOTE: uncomment for local build. Must also set full registry path in FROM to registry.redhat.io or registry.access.redhat.com
 # enable rhel 9 content sets (from Brew) to resolve buildah
