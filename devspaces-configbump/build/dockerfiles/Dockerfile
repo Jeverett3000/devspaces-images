@@ -12,7 +12,7 @@
 # see also brew.Dockerfile
 
 # https://registry.access.redhat.com/ubi9/go-toolset
-FROM registry.access.redhat.com/ubi9/go-toolset:9.5-1746547777 as builder
+FROM registry.access.redhat.com/ubi9/go-toolset:9.6-1747333074 as builder
 USER 0
 ENV GOPATH=/go/ \
     CGO_ENABLED=1
@@ -30,7 +30,7 @@ RUN export ARCH="$(uname -m)" && if [[ ${ARCH} == "x86_64" ]]; then export ARCH=
     chmod 755 /usr/local/bin/configbump
 
 # https://registry.access.redhat.com/ubi9-minimal
-FROM registry.access.redhat.com/ubi9-minimal:9.5-1745855087  as runtime
+FROM registry.access.redhat.com/ubi9-minimal:9.6-1747218906  as runtime
 #hadolint ignore=DL4006
 RUN microdnf -y install shadow-utils && \
     adduser appuser && \
