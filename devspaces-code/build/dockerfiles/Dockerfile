@@ -18,7 +18,7 @@ FROM quay.io/devspaces/machineexec-rhel8:3.12 as machine-exec
 ##################################################################################################################
 
 # https://registry.access.redhat.com/ubi8/nodejs-20
-FROM registry.access.redhat.com/ubi8/nodejs-20:1-74.1747183253 as linux-libc-ubi8-builder
+FROM registry.access.redhat.com/ubi8/nodejs-20:1-74.1747789194 as linux-libc-ubi8-builder
 
 USER root
 
@@ -84,7 +84,7 @@ RUN npm install \
 ##################################################################################################################
 
 # https://registry.access.redhat.com/ubi9/nodejs-20
-FROM registry.access.redhat.com/ubi9/nodejs-20:9.6-1745586361 as linux-libc-ubi9-builder
+FROM registry.access.redhat.com/ubi9/nodejs-20:9.6-1748365803 as linux-libc-ubi9-builder
 
 USER root
 
