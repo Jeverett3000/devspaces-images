@@ -16,7 +16,7 @@
 # The directory is located at /tmp/opt/ovsx/node_modules
 
 # https://registry.access.redhat.com/rhel9-2-els/rhel
-FROM registry.redhat.io/rhel9-2-els/rhel:9.2-1535 as builder
+FROM registry.redhat.io/rhel9-2-els/rhel:9.2-1582 as builder
 
 # hadolint ignore=DL3002
 USER root
@@ -57,7 +57,7 @@ RUN source $REMOTE_SOURCES_DIR/devspaces-pluginregistry/cachito.env \
 #
 
 # https://registry.access.redhat.com/rhel9-2-els/rhel
-FROM registry.redhat.io/rhel9-2-els/rhel:9.2-1535
+FROM registry.redhat.io/rhel9-2-els/rhel:9.2-1582
 USER 0
 WORKDIR /
 
