@@ -9,7 +9,7 @@
   },
   {
     "id": "DavidAnson.vscode-markdownlint",
-    "version": "0.59.0"
+    "version": "0.60.0"
   },
   {
     "id": "robocorp.robotframework-lsp",
@@ -53,7 +53,7 @@
   },
   {
     "id": "eclipse-cdt.cdt-gdb-vscode",
-    "version": "2.0.3"
+    "version": "2.0.4"
   },
   {
     "id": "bmewburn.vscode-intelephense-client",
@@ -109,7 +109,7 @@
   },
   {
     "id": "redhat.java",
-    "version": "1.41.1"
+    "version": "1.42.0"
   },
   {
     "id": "vscjava.vscode-java-debug",
@@ -149,7 +149,7 @@
   },
   {
     "id": "ms-dotnettools.vscode-dotnet-runtime",
-    "version": "2.3.3"
+    "version": "2.3.6"
   },
   {
     "id": "muhammad-sammy.csharp",
@@ -157,7 +157,7 @@
   },
   {
     "id": "SonarSource.sonarlint-vscode",
-    "version": "4.21.0"
+    "version": "4.23.0"
   },
   {
     "id": "vscode.git-base",
@@ -177,11 +177,11 @@
   },
   {
     "id": "atlassian.atlascode",
-    "version": "3.6.0"
+    "version": "3.8.2"
   },
   {
     "id": "JFrog.jfrog-vscode-extension",
-    "version": "2.13.8"
+    "version": "2.13.9"
   },
   {
     "id": "SonatypeCommunity.vscode-iq-plugin",
@@ -189,7 +189,7 @@
   },
   {
     "id": "GitLab.gitlab-workflow",
-    "version": "6.13.1"
+    "version": "6.19.0"
   },
   {
     "id": "timonwong.shellcheck",
@@ -209,7 +209,7 @@
   },
   {
     "id": "eamodio.gitlens",
-    "version": "17.0.3"
+    "version": "17.1.1"
   },
   {
     "id": "Continue.continue",
@@ -241,11 +241,11 @@
   },
   {
     "id": "Zowe.cics-extension-for-zowe",
-    "version": "3.6.1"
+    "version": "3.8.0"
   },
   {
     "id": "IBM.zopeneditor",
-    "version": "5.4.0"
+    "version": "5.4.1"
   },
   {
     "id": "IBM.zopendebug",
