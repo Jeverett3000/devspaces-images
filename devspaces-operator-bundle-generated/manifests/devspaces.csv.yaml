@@ -55,7 +55,7 @@ metadata:
     categories: Developer Tools
     certified: "true"
     containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:cff7d58258bff766a5f573244cf32ff053b609210ca2bad36dfe2327dbe886ad
-    createdAt: "2025-05-19T16:03:27+00:00"
+    createdAt: "2025-06-04T13:27:48+00:00"
     description: Devfile v2 and v1 development solution, 1 instance per cluster, for portable, collaborative k8s workspaces.
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -900,7 +900,7 @@ spec:
                 - name: RELATED_IMAGE_gateway_authorization_sidecar
                   value: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:1ed3b514bf9af6ac0d386e3739874d1d964e667d54e041c2d67edd769b0009fb
                 - name: RELATED_IMAGE_plugin_registry
-                  value: registry.redhat.io/devspaces/pluginregistry-rhel9@sha256:dd0839be2d2d2a3be5c5e291de866d7baf8efafd3ae0a3b2790cd6eaeae9c291
+                  value: registry.redhat.io/devspaces/pluginregistry-rhel9@sha256:cf5d228afd65b74a703e25eb9d2bedd8491da50eaa844ed2973da66ab49603ca
                 - name: RELATED_IMAGE_pvc_jobs
                   value: registry.redhat.io/ubi8/ubi-minimal@sha256:b93deceb59a58588d5b16429fc47f98920f84740a1f2ed6454e33275f0701b59
                 - name: RELATED_IMAGE_sample_encoded_cmVnaXN0cnkucmVkaGF0LmlvL2RldnNwYWNlcy91ZGktcmhlbDk6My4yMgo____
@@ -954,10 +954,14 @@ spec:
                     - ALL
                   privileged: false
                   readOnlyRootFilesystem: false
+                  runAsNonRoot: true
               hostIPC: false
               hostNetwork: false
               hostPID: false
               restartPolicy: Always
+              securityContext:
+                seccompProfile:
+                  type: RuntimeDefault
               serviceAccountName: devspaces-operator
               terminationGracePeriodSeconds: 20
       permissions:
@@ -1124,7 +1128,7 @@ spec:
   - name: gateway_authorization_sidecar
     image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:1ed3b514bf9af6ac0d386e3739874d1d964e667d54e041c2d67edd769b0009fb
   - name: plugin_registry
-    image: registry.redhat.io/devspaces/pluginregistry-rhel9@sha256:dd0839be2d2d2a3be5c5e291de866d7baf8efafd3ae0a3b2790cd6eaeae9c291
+    image: registry.redhat.io/devspaces/pluginregistry-rhel9@sha256:cf5d228afd65b74a703e25eb9d2bedd8491da50eaa844ed2973da66ab49603ca
   - name: pvc_jobs
     image: registry.redhat.io/ubi8/ubi-minimal@sha256:b93deceb59a58588d5b16429fc47f98920f84740a1f2ed6454e33275f0701b59
   - name: sample_encoded_cmvnaxn0cnkucmvkagf0lmlvl2rldnnwywnlcy91zgktcmhlbdk6my4ymgo____
