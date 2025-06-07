@@ -55,7 +55,7 @@ metadata:
     categories: Developer Tools
     certified: "true"
     containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3
-    createdAt: "2025-06-04T13:27:48+00:00"
+    createdAt: "2025-06-06T23:57:17+00:00"
     description: Devfile v2 and v1 development solution, 1 instance per cluster, for portable, collaborative k8s workspaces.
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -835,7 +835,7 @@ spec:
                 - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_CONTAINERSECURITYCONTEXT
                   value: '{"allowPrivilegeEscalation": true,"capabilities": {"add": ["SETGID", "SETUID"]}}'
                 - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTCOMPONENTS
-                  value: '[{"name": "universal-developer-image", "container": {"image": "registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e"}}]'
+                  value: '[{"name": "universal-developer-image", "container": {"image": "registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895"}}]'
                 - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTEDITOR
                   value: che-incubator/che-code/latest
                 - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DISABLECONTAINERBUILDCAPABILITIES
@@ -870,31 +870,31 @@ spec:
                 - name: RELATED_IMAGE_editor_definition_che_clion_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
                 - name: RELATED_IMAGE_editor_definition_che_clion_server_latest_editor_runtime
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_code_latest_che_code_injector
                   value: registry.redhat.io/devspaces/code-rhel9@sha256:35583ad18c240641d50ba2d42ed98966f1795e2c407d0bddd3e14c7a210b3b89
                 - name: RELATED_IMAGE_editor_definition_che_code_latest_che_code_runtime_description
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_idea_latest_idea_rhel9
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_idea_latest_idea_rhel9_injector
                   value: registry.redhat.io/devspaces-tech-preview/idea-rhel9@sha256:ba7d465416aa2b0f32e6c3ca6d171224214c9779dc7523a8117e049942a9f558
                 - name: RELATED_IMAGE_editor_definition_che_idea_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
                 - name: RELATED_IMAGE_editor_definition_che_idea_server_latest_editor_runtime
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_pycharm_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
                 - name: RELATED_IMAGE_editor_definition_che_pycharm_server_latest_editor_runtime
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_rubymine_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
                 - name: RELATED_IMAGE_editor_definition_che_rubymine_server_latest_editor_runtime
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_editor_definition_che_webstorm_server_latest_editor_injector
                   value: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
                 - name: RELATED_IMAGE_editor_definition_che_webstorm_server_latest_editor_runtime
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_gateway_authentication_sidecar
                   value: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:5391e9ec3748fec2b820db5fb0b8bd167a1efd607b8a0c090cce5ad2e94f4fcc
                 - name: RELATED_IMAGE_gateway_authorization_sidecar
@@ -904,7 +904,7 @@ spec:
                 - name: RELATED_IMAGE_pvc_jobs
                   value: registry.redhat.io/ubi8/ubi-minimal@sha256:b93deceb59a58588d5b16429fc47f98920f84740a1f2ed6454e33275f0701b59
                 - name: RELATED_IMAGE_sample_encoded_cmVnaXN0cnkucmVkaGF0LmlvL2RldnNwYWNlcy91ZGktcmhlbDk6My4yMgo____
-                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+                  value: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
                 - name: RELATED_IMAGE_single_host_gateway
                   value: registry.redhat.io/devspaces/traefik-rhel9@sha256:92601e242cfb879c93c63eaa81fabac6d086a139788b672a5065dd60cd56cb0d
                 - name: RELATED_IMAGE_single_host_gateway_config_sidecar
@@ -1098,31 +1098,31 @@ spec:
   - name: editor_definition_che_clion_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
   - name: editor_definition_che_clion_server_latest_editor_runtime
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_code_latest_che_code_injector
     image: registry.redhat.io/devspaces/code-rhel9@sha256:35583ad18c240641d50ba2d42ed98966f1795e2c407d0bddd3e14c7a210b3b89
   - name: editor_definition_che_code_latest_che_code_runtime_description
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_idea_latest_idea_rhel9
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_idea_latest_idea_rhel9_injector
     image: registry.redhat.io/devspaces-tech-preview/idea-rhel9@sha256:ba7d465416aa2b0f32e6c3ca6d171224214c9779dc7523a8117e049942a9f558
   - name: editor_definition_che_idea_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
   - name: editor_definition_che_idea_server_latest_editor_runtime
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_pycharm_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
   - name: editor_definition_che_pycharm_server_latest_editor_runtime
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_rubymine_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
   - name: editor_definition_che_rubymine_server_latest_editor_runtime
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: editor_definition_che_webstorm_server_latest_editor_injector
     image: registry.redhat.io/devspaces-tech-preview/jetbrains-ide-rhel9@sha256:0b2d18a0ca573443bf0245c49c2abd7b60e89f5390e700294c120a04623ab3a7
   - name: editor_definition_che_webstorm_server_latest_editor_runtime
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: gateway_authentication_sidecar
     image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:5391e9ec3748fec2b820db5fb0b8bd167a1efd607b8a0c090cce5ad2e94f4fcc
   - name: gateway_authorization_sidecar
@@ -1132,7 +1132,7 @@ spec:
   - name: pvc_jobs
     image: registry.redhat.io/ubi8/ubi-minimal@sha256:b93deceb59a58588d5b16429fc47f98920f84740a1f2ed6454e33275f0701b59
   - name: sample_encoded_cmvnaxn0cnkucmvkagf0lmlvl2rldnnwywnlcy91zgktcmhlbdk6my4ymgo____
-    image: registry.redhat.io/devspaces/udi-rhel9@sha256:d299636164124525669d5bfd132ccac58f3e5be4761de3e1fa4d0814d842711e
+    image: registry.redhat.io/devspaces/udi-rhel9@sha256:54d0409c80ce6fc2026612b900af89f5bfe354f4d96e71b2caf531e95d5fe895
   - name: single_host_gateway
     image: registry.redhat.io/devspaces/traefik-rhel9@sha256:92601e242cfb879c93c63eaa81fabac6d086a139788b672a5065dd60cd56cb0d
   - name: single_host_gateway_config_sidecar
