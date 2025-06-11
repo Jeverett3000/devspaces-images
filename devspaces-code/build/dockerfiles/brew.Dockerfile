@@ -16,7 +16,7 @@
 #########################################################################
 
 # https://registry.access.redhat.com/ubi8/nodejs-20
-FROM registry.redhat.io/ubi8/nodejs-20:1-74.1747789194 as checode-linux-libc-ubi8-builder
+FROM registry.redhat.io/ubi8/nodejs-20:1-75.1749482737 as checode-linux-libc-ubi8-builder
 # hadolint ignore=DL3002
 USER root
 
@@ -199,7 +199,7 @@ RUN npm install \
 #########################################################################
 
 # https://registry.access.redhat.com/ubi9/nodejs-20
-FROM registry.redhat.io/ubi9/nodejs-20:9.6-1748365803 as checode-linux-libc-ubi9-builder
+FROM registry.redhat.io/ubi9/nodejs-20:9.6-1749604222 as checode-linux-libc-ubi9-builder
 # hadolint ignore=DL3002
 USER root
 
@@ -395,7 +395,7 @@ RUN npm install \
 # NOTE: can't use scatch images in OSBS, because unable to start container process: exec: \"/bin/sh\": stat /bin/sh: no such file or directory
 # so we must rebuild machineexec binary in this build
 # https://registry.access.redhat.com/ubi9/go-toolset
-FROM registry.redhat.io/ubi9/go-toolset:9.6-1747333074 as machineexec-builder
+FROM registry.redhat.io/ubi9/go-toolset:9.6-1749636489 as machineexec-builder
 ENV GOPATH=/go/
 # hadolint ignore=DL3002
 USER root
@@ -413,7 +413,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -ldflags '-w -s' -a -instal
 #########################################################################
 
 # https://registry.access.redhat.com/ubi9
-FROM registry.redhat.io/ubi9:9.6-1747219013 AS ubi-builder
+FROM registry.redhat.io/ubi9:9.6-1749542372 AS ubi-builder
 
 RUN mkdir -p /mnt/rootfs/projects /mnt/rootfs/home/che /mnt/rootfs/remote/data/Machine/
 # hadolint ignore=DL3033
@@ -458,7 +458,7 @@ RUN rm /mnt/rootfs/etc/hosts
 #########################################################################
 
 # https://registry.access.redhat.com/ubi9-minimal
-FROM registry.redhat.io/ubi9-minimal:9.6-1747218906
+FROM registry.redhat.io/ubi9-minimal:9.6-1749489516
 COPY --from=ubi-builder /mnt/rootfs/ /
 ENV HOME=/home/che
 USER 1001
