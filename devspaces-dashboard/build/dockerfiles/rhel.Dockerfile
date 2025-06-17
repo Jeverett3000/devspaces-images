@@ -9,7 +9,7 @@
 #   Red Hat, Inc. - initial API and implementation
 
 # https://registry.access.redhat.com/ubi8/nodejs-18
-FROM registry.access.redhat.com/ubi8/nodejs-18:1-139 as builder
+FROM registry.access.redhat.com/ubi8/nodejs-18:1-139.1749482735 as builder
 # hadolint ignore=DL3002
 USER 0
 RUN dnf -y -q update --exclude=unbound-libs 
@@ -20,7 +20,7 @@ RUN npm i -g yarn; yarn install
 RUN yarn build
 
 # https://registry.access.redhat.com/ubi8/nodejs-18
-FROM registry.access.redhat.com/ubi8/nodejs-18:1-139
+FROM registry.access.redhat.com/ubi8/nodejs-18:1-139.1749482735
 # hadolint ignore=DL3002
 USER 0
 # hadolint ignore=DL4006
@@ -36,6 +36,8 @@ ENV DEVFILE_REGISTRY=/dashboard/packages/devfile-registry
 COPY --from=builder ${BACKEND_LIB} /backend
 COPY --from=builder ${FRONTEND_LIB} /public
 COPY --from=builder ${DEVFILE_REGISTRY} /public/dashboard/devfile-registry
+
+RUN chmod -R ug+rw /public/dashboard/devfile-registry
 
 COPY build/dockerfiles/rhel.entrypoint.sh /usr/local/bin
 CMD ["/usr/local/bin/rhel.entrypoint.sh"]
