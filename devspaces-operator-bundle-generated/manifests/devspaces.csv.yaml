@@ -54,7 +54,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: Developer Tools
     certified: "true"
-    containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3
+    containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
     createdAt: "2025-06-06T23:57:17+00:00"
     description: Devfile v2 and v1 development solution, 1 instance per cluster, for portable, collaborative k8s workspaces.
     features.operators.openshift.io/cnf: "false"
@@ -913,7 +913,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.annotations['olm.targetNamespaces']
-                image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3
+                image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
                 imagePullPolicy: Always
                 livenessProbe:
                   failureThreshold: 10
@@ -1087,10 +1087,10 @@ spec:
     webhookPath: /convert
   replaces: devspacesoperator.v3.20.0
   relatedImages:
-  - name: devspaces-rhel9-operator-30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3-annotation
-    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3
+  - name: devspaces-rhel9-operator-b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b-annotation
+    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
   - name: devspaces-operator
-    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:30166155caf46056c8709f30c9ba6fad61d83600c549bac4bc77a6d025ca6fb3
+    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
   - name: che_server
     image: registry.redhat.io/devspaces/server-rhel9@sha256:3ed55965cfb76ec1579e599aa43e59a962e1e8482e6feb6420ffaba5960bc425
   - name: dashboard
