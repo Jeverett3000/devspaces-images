@@ -54,7 +54,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: Developer Tools
     certified: "true"
-    containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
+    containerImage: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:ea35f352875a48407921bb7f3b7ca9cb57ff13a323b0600231f4f786f249f198
     createdAt: "2025-06-06T23:57:17+00:00"
     description: Devfile v2 and v1 development solution, 1 instance per cluster, for portable, collaborative k8s workspaces.
     features.operators.openshift.io/cnf: "false"
@@ -864,7 +864,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
                 - name: RELATED_IMAGE_che_server
-                  value: registry.redhat.io/devspaces/server-rhel9@sha256:177855f888625db20248b7c8118f72896a5f7d74b3de1d794c8efec0572cea61
+                  value: registry.redhat.io/devspaces/server-rhel9@sha256:6214fc6b2ea928954a0fafc1ab6d0f04922dcdd0fa0fb4ed5cff382f3a19ea51
                 - name: RELATED_IMAGE_dashboard
                   value: registry.redhat.io/devspaces/dashboard-rhel9@sha256:844bf5cf7598e4d96437b9f16a1f4e3220920ba4500cd331254f7eda44882fbd
                 - name: RELATED_IMAGE_editor_definition_che_clion_server_latest_editor_injector
@@ -913,7 +913,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.annotations['olm.targetNamespaces']
-                image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
+                image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:ea35f352875a48407921bb7f3b7ca9cb57ff13a323b0600231f4f786f249f198
                 imagePullPolicy: Always
                 livenessProbe:
                   failureThreshold: 10
@@ -1087,12 +1087,12 @@ spec:
     webhookPath: /convert
   replaces: devspacesoperator.v3.20.0
   relatedImages:
-  - name: devspaces-rhel9-operator-b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b-annotation
-    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
+  - name: devspaces-rhel9-operator-ea35f352875a48407921bb7f3b7ca9cb57ff13a323b0600231f4f786f249f198-annotation
+    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:ea35f352875a48407921bb7f3b7ca9cb57ff13a323b0600231f4f786f249f198
   - name: devspaces-operator
-    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:b6fe58dd6efbe69e9ccff0a64c9ab3e759968ebf7a116b076a699d2804e7788b
+    image: registry.redhat.io/devspaces/devspaces-rhel9-operator@sha256:ea35f352875a48407921bb7f3b7ca9cb57ff13a323b0600231f4f786f249f198
   - name: che_server
-    image: registry.redhat.io/devspaces/server-rhel9@sha256:177855f888625db20248b7c8118f72896a5f7d74b3de1d794c8efec0572cea61
+    image: registry.redhat.io/devspaces/server-rhel9@sha256:6214fc6b2ea928954a0fafc1ab6d0f04922dcdd0fa0fb4ed5cff382f3a19ea51
   - name: dashboard
     image: registry.redhat.io/devspaces/dashboard-rhel9@sha256:844bf5cf7598e4d96437b9f16a1f4e3220920ba4500cd331254f7eda44882fbd
   - name: editor_definition_che_clion_server_latest_editor_injector
