@@ -1,0 +1,109 @@
+name: Code Quality
+
+on:
+  pull_request:
+    branches:
+      - main
+      - devspaces-*-rhel-*
+  push:
+    branches:
+      - main
+      - devspaces-*-rhel-*
+
+jobs:
+  shell-check:
+    name: Shell Script Validation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        run: |
+          echo "Installing ShellCheck..."
+          sudo apt-get update && sudo apt-get install -y shellcheck
+
+          echo "Finding shell scripts..."
+          SHELL_SCRIPTS=$(find . -type f -name "*.sh" | grep -v node_modules || true)
+
+          if [ -z "$SHELL_SCRIPTS" ]; then
+            echo "No shell scripts found"
+            exit 0
+          fi
+
+          echo "Found shell scripts:"
+          echo "$SHELL_SCRIPTS"
+
+          echo ""
+          echo "Running ShellCheck..."
+          for script in $SHELL_SCRIPTS; do
+            echo "Checking $script..."
+            shellcheck "$script" || echo "ShellCheck found issues in $script"
+          done
+
+  yaml-check:
+    name: YAML Validation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: |
+          pip install yamllint
+
+      - name: Find and validate YAML files
+        run: |
+          echo "Finding YAML files..."
+          YAML_FILES=$(find . -type f \( -name "*.yml" -o -name "*.yaml" \) | grep -v node_modules || true)
+
+          if [ -z "$YAML_FILES" ]; then
+            echo "No YAML files found"
+            exit 0
+          fi
+
+          echo "Found YAML files:"
+          echo "$YAML_FILES"
+
+          echo ""
+          echo "Running yamllint..."
+          for yaml_file in $YAML_FILES; do
+            echo "Checking $yaml_file..."
+            yamllint -d relaxed "$yaml_file" || echo "yamllint found issues in $yaml_file"
+          done
+
+  json-check:
+    name: JSON Validation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          echo "Finding JSON files..."
+          JSON_FILES=$(find . -type f -name "*.json" | grep -v node_modules || true)
+
+          if [ -z "$JSON_FILES" ]; then
+            echo "No JSON files found"
+            exit 0
+          fi
+
+          echo "Found JSON files:"
+          echo "$JSON_FILES"
+
+          echo ""
+          echo "Validating JSON syntax..."
+          for json_file in $JSON_FILES; do
+            echo "Checking $json_file..."
+            python3 -m json.tool "$json_file" > /dev/null && echo "✓ $json_file is valid" || echo "✗ $json_file has syntax errors"
+          done

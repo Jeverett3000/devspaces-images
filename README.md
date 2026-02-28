@@ -1,6 +1,17 @@
-Links marked with this icon :door: are _internal to Red Hat_. This includes Jenkins servers, job configs in gitlab, and container sources in dist-git. 
+Links marked with this icon :door: are _internal to Red Hat_. This includes Jenkins servers, job configs in gitlab, and container sources in dist-git.
 
 Because these services are internal, in the interest of making all things open, we've copied as much as possible into this repo. Details below.
+
+## Contributing
+
+We welcome contributions! This repository now includes GitHub Actions workflows for continuous integration:
+
+* **CI Workflow** - Validates repository structure and key files on every PR
+* **Code Quality** - Checks shell scripts, YAML, and JSON files for syntax and style
+* **Docker Build Check** - Validates Dockerfiles using hadolint when container files are modified
+* **Welcome** - Greets new contributors automatically
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Midstream code
 This repo is used to house identical copies of the code used to build the **Red Hat OpenShift Dev Spaces (formerly CodeReady Workspaces) images** in Brew/OSBS, but made public to enable pull requests and easier contribution.

@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - devspaces-*-rhel-*
+  pull_request:
+    branches:
+      - main
+      - devspaces-*-rhel-*
+
+jobs:
+  validate:
+    name: Validate Repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for Dockerfiles
+        run: |
+          echo "Checking for Dockerfiles in the repository..."
+          find . -name "Dockerfile*" -type f
+
+      - name: Validate VERSION.json
+        run: |
+          echo "Validating VERSION.json..."
+          if [ -f VERSION.json ]; then
+            cat VERSION.json
+            # Basic JSON validation
+            python3 -m json.tool VERSION.json > /dev/null
+          else
+            echo "VERSION.json not found"
+          fi
+
+      - name: Check README
+        run: |
+          echo "Checking README.md exists..."
+          if [ -f README.md ]; then
+            echo "README.md found"
+          else
+            echo "WARNING: README.md not found"
+          fi
+
+      - name: Repository structure check
+        run: |
+          echo "Repository structure:"
+          ls -la
+          echo ""
+          echo "Subdirectories:"
+          find . -maxdepth 1 -type d ! -path . ! -path ./.git -exec basename {} \;
