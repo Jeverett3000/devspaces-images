@@ -67,15 +67,15 @@ Automatically welcomes new contributors when they open issues or pull requests.
 2. **Create a Branch**: Create a feature branch for your changes
 3. **Make Changes**: Make your changes, keeping them focused and minimal
 4. **Test Locally**: Test your changes locally before submitting
-5. **Run Linters**: Ensure code quality checks pass:
+5. **Run Linters**: Ensure code quality checks pass (replace filenames with your actual files):
    ```bash
-   # Check shell scripts
+   # Check shell scripts (example)
    shellcheck script.sh
 
-   # Check YAML files
+   # Check YAML files (example)
    yamllint -d relaxed file.yaml
 
-   # Validate JSON
+   # Validate JSON (example)
    python3 -m json.tool file.json
    ```
 6. **Submit PR**: Create a pull request with a clear description

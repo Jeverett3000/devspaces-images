@@ -26,7 +26,7 @@ jobs:
               Please make sure you've provided all the necessary information and context.
               A maintainer will review your issue soon.
 
-              For more information about Red Hat OpenShift Dev Spaces, see the [README](../blob/devspaces-3-rhel-9/README.md).`;
+              For more information about Red Hat OpenShift Dev Spaces, see the [README](../README.md).`;
 
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
