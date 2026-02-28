@@ -37,7 +37,8 @@ jobs:
           # Warning (highlighted in yellow)
           echo "::warning file=example.txt,line=1,col=5::This is a warning message"
           
-          # Error (highlighted in red)
+          # Error (highlighted in red) - Commented out to prevent workflow from failing
+          # Uncomment the line below to see error messages in action:
           # echo "::error file=example.txt,line=10,col=15::This is an error message"
           
           echo "::endgroup::"
