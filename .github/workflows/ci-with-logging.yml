@@ -82,11 +82,18 @@ jobs:
           # Check for key directories
           echo ""
           echo "Checking for DevSpaces components:"
+          shopt -s nullglob  # Prevent glob from expanding to literal string if no matches
+          found_dirs=0
           for dir in devspaces-*; do
             if [ -d "$dir" ]; then
               echo "  ✓ Found: $dir" | tee -a logs/structure-validation.log
+              found_dirs=$((found_dirs + 1))
             fi
           done
+          if [ $found_dirs -eq 0 ]; then
+            echo "  No devspaces-* directories found" | tee -a logs/structure-validation.log
+          fi
+          shopt -u nullglob  # Restore default behavior
           
           echo "::endgroup::"
       
@@ -134,10 +141,10 @@ jobs:
           # Example test commands
           echo "::notice::Running validation tests"
           
-          # Check for test scripts
-          if find . -name "*.sh" -path "*/test/*" -o -name "*test*.sh" | head -5 | grep -q .; then
+          # Check for test scripts (with proper operator precedence)
+          if find . \( -name "*.sh" -path "*/test/*" \) -o -name "*test*.sh" | head -5 | grep -q .; then
             echo "::notice::Found test scripts:"
-            find . -name "*.sh" -path "*/test/*" -o -name "*test*.sh" | head -5 | tee -a "$TEST_LOG"
+            find . \( -name "*.sh" -path "*/test/*" \) -o -name "*test*.sh" | head -5 | tee -a "$TEST_LOG"
           else
             echo "::warning::No test scripts found in standard locations"
           fi
