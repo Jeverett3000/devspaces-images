@@ -15,6 +15,10 @@ on:
           - warning
           - error
 
+# Limit permissions for security
+permissions:
+  contents: read
+
 jobs:
   logging-techniques:
     runs-on: ubuntu-latest
