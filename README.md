@@ -2,6 +2,16 @@ Links marked with this icon :door: are _internal to Red Hat_. This includes Jenk
 
 Because these services are internal, in the interest of making all things open, we've copied as much as possible into this repo. Details below.
 
+## GitHub Actions
+
+This repository now includes GitHub Actions workflows with comprehensive logging capabilities:
+
+* **[CI with Logging](.github/workflows/ci-with-logging.yml)** - Production-ready CI workflow with detailed logging
+* **[Advanced Logging Examples](.github/workflows/advanced-logging-example.yml)** - Educational workflow demonstrating logging techniques
+* **[Documentation](.github/README.md)** - Complete guide to using the workflows
+
+See the [.github directory](.github/) for more information about available workflows and logging features.
+
 ## Midstream code
 This repo is used to house identical copies of the code used to build the **Red Hat OpenShift Dev Spaces (formerly CodeReady Workspaces) images** in Brew/OSBS, but made public to enable pull requests and easier contribution.
 
