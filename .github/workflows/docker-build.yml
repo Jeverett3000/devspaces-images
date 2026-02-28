@@ -11,6 +11,8 @@ jobs:
   check-dockerfiles:
     name: Check Dockerfiles
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code

@@ -14,6 +14,8 @@ jobs:
   shell-check:
     name: Shell Script Validation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -45,6 +47,8 @@ jobs:
   yaml-check:
     name: YAML Validation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -77,6 +81,8 @@ jobs:
   json-check:
     name: JSON Validation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
