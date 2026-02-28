@@ -1,0 +1,243 @@
+name: CI with Comprehensive Logging
+
+on:
+  push:
+    branches: [ main, devspaces-3-rhel-9 ]
+  pull_request:
+    branches: [ main, devspaces-3-rhel-9 ]
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        description: 'Enable debug logging'
+        required: false
+        default: 'false'
+
+env:
+  # Enable debug logging when manually triggered with debug_enabled input
+  ACTIONS_STEP_DEBUG: ${{ github.event.inputs.debug_enabled == 'true' }}
+  ACTIONS_RUNNER_DEBUG: ${{ github.event.inputs.debug_enabled == 'true' }}
+
+# Limit permissions for security
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Step 2: Setup logging directory
+      - name: Setup logging infrastructure
+        run: |
+          echo "::group::Setting up logging infrastructure"
+          mkdir -p logs
+          echo "Log directory created at: $(pwd)/logs"
+          echo "Workflow started at: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "::endgroup::"
+      
+      # Step 3: Log environment information
+      - name: Log environment information
+        run: |
+          echo "::group::Environment Information"
+          echo "================================"
+          echo "GitHub Event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Name: ${{ runner.name }}"
+          echo "Job ID: ${{ github.job }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run Number: ${{ github.run_number }}"
+          echo "================================"
+          echo "::endgroup::"
+          
+          # Save to log file
+          {
+            echo "Workflow Run Information"
+            echo "================================"
+            echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S')"
+            echo "Event: ${{ github.event_name }}"
+            echo "Repository: ${{ github.repository }}"
+            echo "Branch: ${{ github.ref }}"
+            echo "Commit: ${{ github.sha }}"
+            echo "Actor: ${{ github.actor }}"
+            echo "Runner: ${{ runner.os }}"
+            echo "================================"
+          } | tee logs/workflow-info.log
+      
+      # Step 4: Validate repository structure
+      - name: Validate repository structure
+        run: |
+          echo "::group::Repository Structure Validation"
+          echo "Checking repository structure..."
+          
+          # List top-level directories
+          echo "Top-level directories:"
+          ls -la | tee -a logs/structure-validation.log
+          
+          # Check for key directories
+          echo ""
+          echo "Checking for DevSpaces components:"
+          shopt -s nullglob  # Prevent glob from expanding to literal string if no matches
+          found_dirs=0
+          for dir in devspaces-*; do
+            if [ -d "$dir" ]; then
+              echo "  ✓ Found: $dir" | tee -a logs/structure-validation.log
+              found_dirs=$((found_dirs + 1))
+            fi
+          done
+          if [ $found_dirs -eq 0 ]; then
+            echo "  No devspaces-* directories found" | tee -a logs/structure-validation.log
+          fi
+          shopt -u nullglob  # Restore default behavior
+          
+          echo "::endgroup::"
+      
+      # Step 5: Example build step with detailed logging
+      - name: Build example (with logging)
+        id: build
+        run: |
+          echo "::group::Build Process"
+          BUILD_LOG="logs/build-$(date +%Y%m%d-%H%M%S).log"
+          
+          echo "Starting build process..." | tee "$BUILD_LOG"
+          echo "Build log will be saved to: $BUILD_LOG"
+          
+          # Example build commands (adapt to your actual build process)
+          echo "::notice::Starting build validation"
+          
+          # Check if any build scripts exist
+          if [ -f "Makefile" ]; then
+            echo "::notice::Found Makefile"
+            echo "Makefile contents:" | tee -a "$BUILD_LOG"
+            head -20 Makefile | tee -a "$BUILD_LOG"
+          fi
+          
+          # Simulate build steps
+          echo "::notice::Build step completed successfully"
+          echo "Build completed at: $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "$BUILD_LOG"
+          
+          echo "::endgroup::"
+          
+          # Set output for later steps
+          echo "build_log=$BUILD_LOG" >> $GITHUB_OUTPUT
+          echo "build_status=success" >> $GITHUB_OUTPUT
+      
+      # Step 6: Example test step with error handling and logging
+      - name: Run tests (with logging)
+        id: test
+        continue-on-error: true
+        run: |
+          echo "::group::Test Execution"
+          TEST_LOG="logs/test-$(date +%Y%m%d-%H%M%S).log"
+          
+          echo "Starting test execution..." | tee "$TEST_LOG"
+          echo "Test log will be saved to: $TEST_LOG"
+          
+          # Example test commands
+          echo "::notice::Running validation tests"
+          
+          # Check for test scripts (with proper operator precedence)
+          if find . \( -name "*.sh" -path "*/test/*" \) -o -name "*test*.sh" | head -5 | grep -q .; then
+            echo "::notice::Found test scripts:"
+            find . \( -name "*.sh" -path "*/test/*" \) -o -name "*test*.sh" | head -5 | tee -a "$TEST_LOG"
+          else
+            echo "::warning::No test scripts found in standard locations"
+          fi
+          
+          echo "Test execution completed at: $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "$TEST_LOG"
+          echo "::endgroup::"
+          
+          # Set output
+          echo "test_log=$TEST_LOG" >> $GITHUB_OUTPUT
+          echo "test_status=success" >> $GITHUB_OUTPUT
+      
+      # Step 7: Custom logging with grouping
+      - name: Generate summary report
+        if: always()
+        run: |
+          echo "::group::Workflow Summary Report"
+          SUMMARY_LOG="logs/summary-report.log"
+          
+          {
+            echo "======================================"
+            echo "  Workflow Execution Summary"
+            echo "======================================"
+            echo ""
+            echo "Workflow: ${{ github.workflow }}"
+            echo "Completed: $(date '+%Y-%m-%d %H:%M:%S')"
+            echo ""
+            echo "Build Status: ${{ steps.build.outputs.build_status || 'not run' }}"
+            echo "Test Status: ${{ steps.test.outputs.test_status || 'not run' }}"
+            echo ""
+            echo "Build Log: ${{ steps.build.outputs.build_log || 'N/A' }}"
+            echo "Test Log: ${{ steps.test.outputs.test_log || 'N/A' }}"
+            echo ""
+            echo "======================================"
+          } | tee "$SUMMARY_LOG"
+          
+          # Add to job summary (appears in GitHub UI)
+          {
+            echo "## 📊 Workflow Summary"
+            echo ""
+            echo "| Item | Value |"
+            echo "|------|-------|"
+            echo "| Workflow | ${{ github.workflow }} |"
+            echo "| Event | ${{ github.event_name }} |"
+            echo "| Branch | ${{ github.ref }} |"
+            echo "| Commit | ${{ github.sha }} |"
+            echo "| Build Status | ${{ steps.build.outputs.build_status || 'not run' }} |"
+            echo "| Test Status | ${{ steps.test.outputs.test_status || 'not run' }} |"
+            echo ""
+            echo "### 📝 Log Files Generated"
+            echo ""
+            ls -lh logs/ || echo "No logs directory found"
+          } >> $GITHUB_STEP_SUMMARY
+          
+          echo "::endgroup::"
+      
+      # Step 8: Upload logs as artifacts
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 30
+          if-no-files-found: warn
+      
+      # Step 9: Debug output (only when debug is enabled)
+      - name: Debug information
+        if: ${{ github.event.inputs.debug_enabled == 'true' || runner.debug == '1' }}
+        run: |
+          echo "::group::Debug Information"
+          echo "Debug mode is enabled"
+          echo ""
+          echo "Full environment variables:"
+          env | sort
+          echo ""
+          echo "GitHub context:"
+          echo '${{ toJSON(github) }}'
+          echo ""
+          echo "Runner context:"
+          echo '${{ toJSON(runner) }}'
+          echo "::endgroup::"
+      
+      # Step 10: Error notification example
+      - name: Report failures
+        if: failure()
+        run: |
+          echo "::error::Workflow failed! Check the logs for details."
+          echo "::error::Build status: ${{ steps.build.outcome }}"
+          echo "::error::Test status: ${{ steps.test.outcome }}"
+          
+          # You could add notifications here (Slack, email, etc.)
+          echo "Failed at: $(date '+%Y-%m-%d %H:%M:%S')"
