@@ -1,0 +1,232 @@
+name: Advanced Logging Examples
+
+# This workflow demonstrates advanced logging techniques in GitHub Actions
+on:
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: 'Logging level'
+        required: true
+        default: 'info'
+        type: choice
+        options:
+          - debug
+          - info
+          - warning
+          - error
+
+jobs:
+  logging-techniques:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # Demonstrate different log levels
+      - name: Demonstrate log levels
+        run: |
+          echo "::group::Log Level Examples"
+          
+          # Debug message (only visible when debug is enabled)
+          echo "::debug::This is a debug message"
+          
+          # Notice (highlighted in blue in GitHub UI)
+          echo "::notice::This is a notice message"
+          
+          # Warning (highlighted in yellow)
+          echo "::warning file=example.txt,line=1,col=5::This is a warning message"
+          
+          # Error (highlighted in red)
+          # echo "::error file=example.txt,line=10,col=15::This is an error message"
+          
+          echo "::endgroup::"
+      
+      # Demonstrate grouping for better log organization
+      - name: Demonstrate log grouping
+        run: |
+          echo "::group::Configuration Loading"
+          echo "Loading configuration files..."
+          echo "  - config.yml"
+          echo "  - settings.json"
+          echo "  - environment.env"
+          echo "Configuration loaded successfully"
+          echo "::endgroup::"
+          
+          echo "::group::Database Connection"
+          echo "Connecting to database..."
+          echo "Connection established"
+          echo "::endgroup::"
+          
+          echo "::group::Data Processing"
+          echo "Processing 1000 records..."
+          echo "Progress: 50%"
+          echo "Progress: 100%"
+          echo "Processing complete"
+          echo "::endgroup::"
+      
+      # Demonstrate masking sensitive data
+      - name: Demonstrate log masking
+        env:
+          SENSITIVE_TOKEN: "secret-token-12345"
+        run: |
+          echo "::group::Masking Sensitive Data"
+          
+          # Mask sensitive value (will appear as *** in logs)
+          echo "::add-mask::$SENSITIVE_TOKEN"
+          
+          echo "Token value: $SENSITIVE_TOKEN"
+          echo "The token above should be masked in the logs"
+          
+          echo "::endgroup::"
+      
+      # Demonstrate setting outputs with logging
+      - name: Set outputs with logging
+        id: set_outputs
+        run: |
+          echo "::group::Setting Step Outputs"
+          
+          BUILD_VERSION="1.0.0"
+          BUILD_TIME=$(date +%s)
+          
+          echo "Setting build_version=$BUILD_VERSION"
+          echo "build_version=$BUILD_VERSION" >> $GITHUB_OUTPUT
+          
+          echo "Setting build_time=$BUILD_TIME"
+          echo "build_time=$BUILD_TIME" >> $GITHUB_OUTPUT
+          
+          echo "::notice::Outputs set successfully"
+          echo "::endgroup::"
+      
+      # Demonstrate using outputs in later steps
+      - name: Use outputs from previous step
+        run: |
+          echo "::group::Using Step Outputs"
+          echo "Build Version: ${{ steps.set_outputs.outputs.build_version }}"
+          echo "Build Time: ${{ steps.set_outputs.outputs.build_time }}"
+          echo "::endgroup::"
+      
+      # Demonstrate structured logging
+      - name: Structured logging example
+        run: |
+          echo "::group::Structured Logging"
+          
+          # Create a structured log entry
+          cat > structured_log.json <<EOF
+          {
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "level": "${{ inputs.log_level }}",
+            "workflow": "${{ github.workflow }}",
+            "job": "${{ github.job }}",
+            "run_id": "${{ github.run_id }}",
+            "event": "${{ github.event_name }}",
+            "message": "Structured log entry example"
+          }
+          EOF
+          
+          echo "Structured log entry:"
+          cat structured_log.json | jq '.' || cat structured_log.json
+          
+          echo "::endgroup::"
+      
+      # Demonstrate conditional logging based on log level
+      - name: Conditional logging based on level
+        run: |
+          LOG_LEVEL="${{ inputs.log_level }}"
+          
+          echo "::group::Conditional Logging (Level: $LOG_LEVEL)"
+          
+          case "$LOG_LEVEL" in
+            debug)
+              echo "::debug::Debug mode - showing all details"
+              echo "Detailed execution information..."
+              env | head -10
+              ;;
+            info)
+              echo "::notice::Info mode - showing normal output"
+              echo "Standard execution information"
+              ;;
+            warning)
+              echo "::warning::Warning mode - showing warnings only"
+              echo "Only important warnings will be shown"
+              ;;
+            error)
+              echo "::error::Error mode - showing errors only"
+              echo "Only errors will be shown"
+              ;;
+          esac
+          
+          echo "::endgroup::"
+      
+      # Demonstrate timing and performance logging
+      - name: Performance logging
+        run: |
+          echo "::group::Performance Metrics"
+          
+          START_TIME=$(date +%s)
+          echo "Start time: $(date -d @$START_TIME '+%Y-%m-%d %H:%M:%S')"
+          
+          # Simulate some work
+          sleep 2
+          
+          END_TIME=$(date +%s)
+          DURATION=$((END_TIME - START_TIME))
+          
+          echo "End time: $(date -d @$END_TIME '+%Y-%m-%d %H:%M:%S')"
+          echo "Duration: ${DURATION} seconds"
+          
+          echo "::notice::Task completed in ${DURATION} seconds"
+          
+          echo "::endgroup::"
+      
+      # Demonstrate multiline logging
+      - name: Multiline logging
+        run: |
+          echo "::group::Multiline Log Example"
+          
+          # Using heredoc for multiline output
+          cat <<EOF
+          ╔════════════════════════════════════════╗
+          ║     Workflow Execution Report          ║
+          ╠════════════════════════════════════════╣
+          ║ Status: Success                        ║
+          ║ Duration: 2 seconds                    ║
+          ║ Processed: 100 items                   ║
+          ║ Errors: 0                              ║
+          ╚════════════════════════════════════════╝
+          EOF
+          
+          echo "::endgroup::"
+      
+      # Create comprehensive summary
+      - name: Create job summary
+        if: always()
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY <<EOF
+          # 📋 Advanced Logging Workflow Summary
+          
+          ## Configuration
+          - **Log Level**: ${{ inputs.log_level }}
+          - **Workflow**: ${{ github.workflow }}
+          - **Run ID**: ${{ github.run_id }}
+          - **Triggered by**: ${{ github.actor }}
+          
+          ## Features Demonstrated
+          
+          ✅ Log levels (debug, notice, warning, error)
+          ✅ Log grouping for better organization
+          ✅ Masking sensitive data
+          ✅ Setting and using step outputs
+          ✅ Structured logging
+          ✅ Conditional logging
+          ✅ Performance/timing metrics
+          ✅ Multiline logging
+          
+          ## Results
+          
+          All logging examples executed successfully! 🎉
+          
+          ## Next Steps
+          
+          Review the workflow logs to see each logging technique in action.
+          EOF
