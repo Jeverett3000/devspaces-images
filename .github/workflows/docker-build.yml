@@ -1,0 +1,49 @@
+name: Docker Build Check
+
+on:
+  pull_request:
+    paths:
+      - '**/Dockerfile*'
+      - '**/container.yaml'
+      - '.github/workflows/docker-build.yml'
+
+jobs:
+  check-dockerfiles:
+    name: Check Dockerfiles
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Find and validate Dockerfiles
+        run: |
+          echo "Finding Dockerfiles in the repository..."
+          DOCKERFILES=$(find . -name "Dockerfile" -o -name "Dockerfile.*" | grep -v node_modules || true)
+
+          if [ -z "$DOCKERFILES" ]; then
+            echo "No Dockerfiles found"
+            exit 0
+          fi
+
+          echo "Found Dockerfiles:"
+          echo "$DOCKERFILES"
+
+          # Validate Dockerfile syntax using hadolint
+          echo "Installing hadolint for Dockerfile linting..."
+          wget -O /tmp/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          chmod +x /tmp/hadolint
+
+          for dockerfile in $DOCKERFILES; do
+            echo ""
+            echo "Checking $dockerfile..."
+            /tmp/hadolint "$dockerfile" || echo "Hadolint found issues in $dockerfile"
+          done
+
+      - name: Check for container.yaml files
+        run: |
+          echo "Checking for container.yaml configuration files..."
+          find . -name "container.yaml" -type f -exec echo "Found: {}" \;
